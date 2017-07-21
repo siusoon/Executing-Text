@@ -6,7 +6,7 @@ Computer code can be understood through perspectives of language, including sema
 
 The idea of the project is to document the every day progress, both in terms of thinking with and through programing as well as the final outcome of the experimentation.
 
-21072017 | [Run me](https://cdn.rawgit.com/siusoon/Executing-Text/a7b88d48/21072017/index.html):
+21072017 | [Run me](https://cdn.rawgit.com/siusoon/Executing-Text/57492a57/21072017/index.html):
 *Press enter to change words
 
 ![](https://github.com/siusoon/Executing-Text/blob/master/21072017.gif)
