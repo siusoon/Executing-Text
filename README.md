@@ -8,4 +8,5 @@ The idea of the project is to document the every day progress, both in terms of 
 
 21072017 | [Run me](https://cdn.rawgit.com/siusoon/Executing-Text/a7b88d48/21072017/index.html):
 *Press enter to change words
+
 ![](https://github.com/siusoon/Executing-Text/blob/master/21072017.gif)
