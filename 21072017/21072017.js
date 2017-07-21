@@ -2,14 +2,18 @@
 
 var font;
 var vehicles = [];
-var texts = ['自由','希望','意志'];
-
+var texts = ['表達自由','人權之基','人性之本','真理之母'];
+var paintcolor = {
+	R:255,
+	G:255,
+};
+var frameNum = 15;
 function preload() {
 	font = loadFont('data/wt005.ttf');
 }
 
 function setup() {
-	createCanvas(500,500);
+	createCanvas(800,600);
 	background(0);
 	reload();
 }
@@ -21,7 +25,13 @@ function draw() {
 		v.behaviors();
 		v.update();
 		v.show();
+	}	
+	
+	if (frameCount%frameNum==1) {
+	paintcolor.R--;
+	paintcolor.G--;
 	}
+	
 }
 
 function mouseClicked() {
@@ -30,7 +40,8 @@ function mouseClicked() {
 
 function reload() {
 	check_vehicle();
-	var points = font.textToPoints(texts[int(random(texts.length))], width/4.9, height/2, 150);  //convert to objects in points (text, x, y, size)
+	reset_color();
+	var points = font.textToPoints(texts[int(random(texts.length))], width/8, height/2, 150);  //convert to objects in points (text, x, y, size)
 	for (var i = 0; i<points.length; i++) {
 		var pt = points[i];
 		var vehicle = new Vehicle(pt.x, pt.y);
@@ -41,10 +52,15 @@ function reload() {
 function check_vehicle() {
 	if (vehicles.length > 1) {	
 		console.log(vehicles.length);
-			vehicles.splice(0,vehicles.length);		
+		vehicles.splice(0,vehicles.length);		
 	}else{
 		//nothing to do 
 	}
+}
+
+function reset_color() {
+	paintcolor.R = 255;
+	paintcolor.G = 255;
 }
 
 function Vehicle(x,y) {
@@ -53,7 +69,7 @@ function Vehicle(x,y) {
 	this.vel = p5.Vector.random2D();
 	this.acc = createVector();
 	this.maxspeed = 1.5;  //for desired velocity
-	this.maxforce = 1.09;
+	this.maxforce = 0.90;
 }
 
 //IMPORTANT FUNCTION AS BEHAVIORS (either arrive/seek)
@@ -95,7 +111,7 @@ Vehicle.prototype.update = function() {
 }
 
 Vehicle.prototype.show = function () {
-		stroke(255,255,0);
+		stroke(paintcolor.R,paintcolor.G,0);
 		strokeWeight(5);
 		point(this.pos.x, this.pos.y);
 }
