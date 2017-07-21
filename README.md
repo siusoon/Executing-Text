@@ -5,3 +5,5 @@ Computer code can be understood through perspectives of language, including sema
 'Executing text' is a series of experimentation, using p5.js or simply js to experiment with text for a month on a daily basis. The aim of this project is to explore how text, especially chinese characters, can be animated, distorted, interpreted, represented and experienced in new ways via programming.
 
 The idea of the project is to document the every day progress, both in terms of thinking with and through programing as well as the final outcome of the experimentation.
+
+![](https://github.com/siusoon/Executing-Text/blob/master/21072017.gif)
