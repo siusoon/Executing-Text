@@ -1,8 +1,8 @@
-//Daniel shiffman's Steering Behaviors: https://www.youtube.com/watch?v=4hA7G3gup-4
+//Animation reference from Daniel shiffman's Steering Behaviors: https://www.youtube.com/watch?v=4hA7G3gup-4
 
 var font;
 var vehicles = [];
-var texts = ['自由'];
+var texts = ['自由','希望','意志'];
 
 function preload() {
 	font = loadFont('data/wt005.ttf');
@@ -11,13 +11,7 @@ function preload() {
 function setup() {
 	createCanvas(500,500);
 	background(0);
-	
-	var points = font.textToPoints(texts[0], width/4.9, height/2, 150);  //convert to objects in points (text, x, y, size)
-	for (var i = 0; i<points.length; i++) {
-		var pt = points[i];
-		var vehicle = new Vehicle(pt.x, pt.y);
-		vehicles.push(vehicle);
-	}
+	reload();
 }
 
 function draw() {
@@ -27,6 +21,29 @@ function draw() {
 		v.behaviors();
 		v.update();
 		v.show();
+	}
+}
+
+function mouseClicked() {
+	reload();
+}
+
+function reload() {
+	check_vehicle();
+	var points = font.textToPoints(texts[int(random(texts.length))], width/4.9, height/2, 150);  //convert to objects in points (text, x, y, size)
+	for (var i = 0; i<points.length; i++) {
+		var pt = points[i];
+		var vehicle = new Vehicle(pt.x, pt.y);
+		vehicles.push(vehicle);
+	}
+}
+
+function check_vehicle() {
+	if (vehicles.length > 1) {	
+		console.log(vehicles.length);
+			vehicles.splice(0,vehicles.length);		
+	}else{
+		//nothing to do 
 	}
 }
 
